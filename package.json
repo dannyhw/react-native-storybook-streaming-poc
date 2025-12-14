@@ -23,10 +23,12 @@
     "@storybook/addon-ondevice-controls": "^10.1.1",
     "@storybook/addon-ondevice-actions": "^10.1.1",
     "@storybook/react-native": "^10.1.1",
-    "react-dom": "19.1.0"
+    "react-dom": "19.1.0",
+    "ws": "^8.18.3"
   },
   "devDependencies": {
     "@types/react": "~19.1.0",
+    "@types/ws": "^8.18.1",
     "typescript": "~5.9.2",
     "storybook": "^10.1.8",
     "@storybook/react-native-web-vite": "^10.1.8",

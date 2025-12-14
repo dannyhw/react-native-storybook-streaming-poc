@@ -2,11 +2,15 @@
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
     "strict": true,
-    "moduleResolution": "bundler"
+    "moduleResolution": "bundler",
+    "module": "esnext",
+    "target": "esnext"
   },
   "include": [
-    "./.rnstorybook/**/*.{ts,tsx}",
-    "./.storybook/**/*.{ts,tsx}",
+    "./.rnstorybook/*.ts",
+    "./.rnstorybook/*.tsx",
+    "./.storybook/*.tsx",
+    "./.storybook/*.ts",
     "./**/*.ts",
     "./**/*.tsx"
   ]

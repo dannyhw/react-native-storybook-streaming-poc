@@ -11,7 +11,7 @@ type ReactNativeServerOptions = {
 
 async function experimental_serverChannel(
   channel: Channel,
-  { configType, presets, logLevel }: Options
+  { configType, presets, loglevel: logLevel }: Options
 ) {
   if (configType === "DEVELOPMENT") {
     const options = await presets.apply<ReactNativeServerOptions>(
@@ -102,6 +102,10 @@ async function experimental_serverChannel(
 
 const config: StorybookConfig & {
   reactNativeServerOptions: ReactNativeServerOptions;
+  experimental_serverChannel: (
+    channel: Channel,
+    options: Options
+  ) => Promise<Channel>;
 } = {
   stories: ["../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
   addons: [],
