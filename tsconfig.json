@@ -1,6 +1,13 @@
 {
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
-    "strict": true
-  }
+    "strict": true,
+    "moduleResolution": "bundler"
+  },
+  "include": [
+    "./.rnstorybook/**/*.{ts,tsx}",
+    "./.storybook/**/*.{ts,tsx}",
+    "./**/*.ts",
+    "./**/*.tsx"
+  ]
 }
