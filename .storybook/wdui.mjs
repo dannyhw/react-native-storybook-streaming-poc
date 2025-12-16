@@ -32,7 +32,9 @@ const options = {
 
 export async function startAppium() {
   console.log("starting webdriverio");
-  // await remote(options);
+  // ios
+  await remote(options);
+  // android
   await remote({
     ...options,
     capabilities: {
@@ -45,12 +47,3 @@ export async function startAppium() {
     },
   });
 }
-
-// const android = await remote({
-//   capabilities: {
-//     platformName: "android",
-//     "goog:chromeOptions": {
-//       args: process.env.CI ? ["headless", "disable-gpu"] : [],
-//     },
-//   },
-// });
