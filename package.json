@@ -33,7 +33,12 @@
     "storybook": "^10.1.8",
     "@storybook/react-native-web-vite": "^10.1.8",
     "vite": "^7.2.7",
-    "react-native-web": "^0.21.2"
+    "react-native-web": "^0.21.2",
+    "webdriverio": "^9.21.0"
+  },
+  "overrides": {
+    "path-scurry": "^2.0.0",
+    "lru-cache": "^11.0.0"
   },
   "private": true
 }

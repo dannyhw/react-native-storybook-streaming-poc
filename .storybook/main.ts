@@ -3,6 +3,7 @@ import { Channel } from "storybook/internal/channels";
 import { Options } from "storybook/internal/types";
 import { WebSocketServer } from "ws";
 import EVENTS from "storybook/internal/core-events";
+import { startAppium } from "./wdui.mjs";
 
 type ReactNativeServerOptions = {
   host?: string;
@@ -13,6 +14,7 @@ async function experimental_serverChannel(
   channel: Channel,
   { configType, presets, loglevel: logLevel }: Options
 ) {
+  startAppium();
   if (configType === "DEVELOPMENT") {
     const options = await presets.apply<ReactNativeServerOptions>(
       "reactNativeServerOptions"

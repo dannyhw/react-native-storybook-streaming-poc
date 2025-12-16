@@ -4,7 +4,10 @@
     "strict": true,
     "moduleResolution": "bundler",
     "module": "esnext",
-    "target": "esnext"
+    "target": "esnext",
+    "allowImportingTsExtensions": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true
   },
   "include": [
     "./.rnstorybook/*.ts",

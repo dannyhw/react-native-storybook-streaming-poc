@@ -1,5 +1,6 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { view } from "./storybook.requires";
+import { Platform } from "react-native";
 
 const StorybookUIRoot = view.getStorybookUI({
   storage: {
@@ -8,7 +9,7 @@ const StorybookUIRoot = view.getStorybookUI({
   },
   onDeviceUI: false,
   enableWebsockets: true,
-  host: "localhost",
+  host: Platform.OS === "ios" ? "localhost" : "10.0.2.2",
   port: 7007,
 });
 

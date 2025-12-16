@@ -13,9 +13,19 @@ const preview: Preview = {
   decorators: [
     (Story) => (
       <View style={{ flex: 1 }}>
-        <View style={{ flexDirection: "row", columnGap: 64 }}>
-          <View style={{ borderWidth: 1, borderColor: "red" }}>
-            <Text style={{ color: "red" }}>VIDEO STREAM GOES HERE</Text>
+        <View
+          style={{
+            flexDirection: "row",
+            columnGap: 64,
+            flex: 1,
+            width: "100%",
+          }}
+        >
+          <View style={{ borderWidth: 1, borderColor: "lightgray" }}>
+            <img src="http://localhost:8080" style={{ maxHeight: "90vh" }} />
+          </View>
+          <View style={{ borderWidth: 1, borderColor: "lightgray" }}>
+            <img src="http://localhost:8083" style={{ maxHeight: "90vh" }} />
           </View>
           <View>
             <Story />
