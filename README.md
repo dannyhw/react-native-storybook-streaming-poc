@@ -1,6 +1,8 @@
 ## how to run
 
 ```
+bun i -g appium
+appium setup
 bun install
 # run web storybook
 bun storybook
