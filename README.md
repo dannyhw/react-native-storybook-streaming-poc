@@ -30,7 +30,7 @@ appium
 # Terminal 2: Run web Storybook
 bun storybook
 
-# Terminal 3: Run React Native Storybook (starts simulator)
+# Terminal 3: Run React Native Storybook, boot up ios/android from here
 bun start
 ```
 
