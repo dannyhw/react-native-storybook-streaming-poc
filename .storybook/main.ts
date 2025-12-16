@@ -112,6 +112,7 @@ const config: StorybookConfig & {
   stories: ["../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
   addons: [],
   framework: "@storybook/react-native-web-vite",
+  staticDirs: ["./static"],
   experimental_serverChannel,
   reactNativeServerOptions: {
     host: "localhost",
