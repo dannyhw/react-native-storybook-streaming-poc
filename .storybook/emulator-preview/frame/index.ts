@@ -1,0 +1,1 @@
+export { previewFrameDecorator } from "./decorator";

@@ -3,7 +3,7 @@ import { Channel } from "storybook/internal/channels";
 import { Options } from "storybook/internal/types";
 import { WebSocketServer } from "ws";
 import EVENTS from "storybook/internal/core-events";
-import { startAppium } from "./wdui.mjs";
+import { emulatorPreview } from "./emulator-preview";
 
 type ReactNativeServerOptions = {
   host?: string;
@@ -14,7 +14,22 @@ async function experimental_serverChannel(
   channel: Channel,
   { configType, presets, loglevel: logLevel }: Options
 ) {
-  startAppium();
+  await emulatorPreview({
+    channel,
+    devices: [
+      {
+        id: "emulator-5554",
+        name: "Medium_Phone_API_36.1",
+        platform: "android",
+      },
+      {
+        id: "1",
+        name: "iPhone 17",
+        platform: "ios",
+      },
+    ],
+  });
+
   if (configType === "DEVELOPMENT") {
     const options = await presets.apply<ReactNativeServerOptions>(
       "reactNativeServerOptions"
