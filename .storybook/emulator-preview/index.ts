@@ -12,5 +12,3 @@ export const emulatorPreview = async (options: EmulatorPreviewOptions) => {
 
   return sessions;
 };
-
-export { previewFrameDecorator } from "./frame";

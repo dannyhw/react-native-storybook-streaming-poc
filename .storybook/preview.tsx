@@ -1,5 +1,5 @@
 import type { Preview } from "@storybook/react-native-web-vite";
-import { previewFrameDecorator } from "./emulator-preview";
+import { previewFrameDecorator } from "./emulator-preview/preview";
 
 const preview: Preview = {
   parameters: {

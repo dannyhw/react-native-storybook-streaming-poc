@@ -3,7 +3,7 @@ import { Channel } from "storybook/internal/channels";
 import { Options } from "storybook/internal/types";
 import { WebSocketServer } from "ws";
 import EVENTS from "storybook/internal/core-events";
-import { emulatorPreview } from "./emulator-preview";
+import { emulatorPreview } from "./emulator-preview/index";
 
 type ReactNativeServerOptions = {
   host?: string;
@@ -19,14 +19,14 @@ async function experimental_serverChannel(
     devices: [
       {
         id: "emulator-5554",
-        name: "Medium_Phone_API_36.1",
+        name: "Pixel_8_API_35",
         platform: "android",
       },
-      {
-        id: "1",
-        name: "iPhone 17",
-        platform: "ios",
-      },
+      // {
+      //   id: "1",
+      //   name: "iPhone 17",
+      //   platform: "ios",
+      // },
     ],
   });
 
