@@ -1,20 +1,21 @@
 import { getAppium } from "./appium";
 import type { EmulatorPreviewOptions } from "./options";
-import { createEmulatorPreviewChannel } from "./messaging/channel";
+import { createServerChannel } from "./messaging/server";
+import { createPreviewSession } from "./preview-session";
 
 export const emulatorPreview = async (
   options: EmulatorPreviewOptions
 ): Promise<void> => {
   const appium = await getAppium({});
   const sessions = await Promise.all(
-    options.devices.map(async (device) => appium.getSession(device))
+    options.devices.map(async (device) => createPreviewSession(appium, device))
   );
 
-  createEmulatorPreviewChannel(options.channel, options);
+  createServerChannel(options, sessions);
 
   const cleanup = async () => {
     try {
-      await Promise.all(sessions.map((session) => session.deleteSession()));
+      await Promise.all(sessions.map((session) => session.dispose()));
     } catch {
       // Ignore errors
     }

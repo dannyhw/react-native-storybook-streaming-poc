@@ -4,8 +4,8 @@
   "main": "index.ts",
   "scripts": {
     "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
     "web": "expo start --web",
     "storybook-generate": "sb-rn-get-stories",
     "storybook": "storybook dev -p 6006",
@@ -17,6 +17,7 @@
     "@storybook/addon-ondevice-actions": "^10.1.1",
     "@storybook/addon-ondevice-controls": "^10.1.1",
     "@storybook/react-native": "^10.1.1",
+    "@types/semver": "^7.7.1",
     "babel-loader": "^8.4.1",
     "execa": "^9.6.1",
     "expo": "~54.0.29",

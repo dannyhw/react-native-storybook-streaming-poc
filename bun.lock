@@ -9,6 +9,7 @@
         "@storybook/addon-ondevice-actions": "^10.1.1",
         "@storybook/addon-ondevice-controls": "^10.1.1",
         "@storybook/react-native": "^10.1.1",
+        "@types/semver": "^7.7.1",
         "babel-loader": "^8.4.1",
         "execa": "^9.6.1",
         "expo": "~54.0.29",
@@ -550,6 +551,8 @@
     "@types/react": ["@types/react@19.1.17", "", { "dependencies": { "csstype": "^3.0.2" } }, "sha512-Qec1E3mhALmaspIrhWt9jkQMNdw6bReVu64mjvhbhq2NFPftLPVr+l1SZgmw/66WwBNpDh7ao5AT6gF5v41PFA=="],
 
     "@types/resolve": ["@types/resolve@1.20.6", "", {}, "sha512-A4STmOXPhMUtHH+S6ymgE2GiBSMqf4oTvcQZMcHzokuTLVYzXTB8ttjcgxOVaAp2lGwEdzZ0J+cRbbeevQj1UQ=="],
+
+    "@types/semver": ["@types/semver@7.7.1", "", {}, "sha512-FmgJfu+MOcQ370SD0ev7EI8TlCAfKYU+B4m5T3yXc1CiRN94g/SZPtsCkk506aUDtlMnFZvasDwHHUcZUEaYuA=="],
 
     "@types/sinonjs__fake-timers": ["@types/sinonjs__fake-timers@8.1.5", "", {}, "sha512-mQkU2jY8jJEF7YHjHvsQO8+3ughTL1mcnn96igfhONmR+fUPSKIkefQYpSe8bsly2Ep7oQbn/6VG5/9/0qcArQ=="],
 

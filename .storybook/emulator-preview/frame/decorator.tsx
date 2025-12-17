@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Text, View } from "react-native";
-import { addons } from "storybook/preview-api";
-import type { EmulatorDevice } from "../options";
-
-const storybookChannel = addons.getChannel();
+import type { EmulatorDeviceWithStreamUrl } from "../messaging/types";
+import { useDevices } from "./useDevices";
 
 interface DeviceFrameProps {
-  device: EmulatorDevice;
+  device: EmulatorDeviceWithStreamUrl;
   story: React.ComponentType;
 }
 
@@ -16,15 +14,6 @@ const DeviceFrame: React.FC<DeviceFrameProps> = ({ device, story: Story }) => {
       return "/Apple iPhone 14 Starlight.png";
     } else if (platform === "android") {
       return "/Samsung Galaxy S9 Titanium Gray.png";
-    }
-    return "";
-  };
-
-  const getDeviceUrl = (platform: string) => {
-    if (platform === "ios") {
-      return "http://localhost:8080";
-    } else if (platform === "android") {
-      return "http://localhost:8083";
     }
     return "";
   };
@@ -51,7 +40,7 @@ const DeviceFrame: React.FC<DeviceFrameProps> = ({ device, story: Story }) => {
   };
 
   const frameImage = getDeviceFrameImage(device.platform);
-  const deviceUrl = getDeviceUrl(device.platform);
+  const deviceUrl = device.streamUrl;
   const positioning = getFramePositioning(device.platform);
 
   return (
@@ -83,26 +72,7 @@ const DeviceFrame: React.FC<DeviceFrameProps> = ({ device, story: Story }) => {
 };
 
 export const previewFrameDecorator = (Story: React.ComponentType) => {
-  const [devices, setDevices] = useState<EmulatorDevice[]>([]);
-
-  useEffect(() => {
-    const handleDevicesResponse = (data: { devices: EmulatorDevice[] }) => {
-      setDevices(data.devices);
-    };
-
-    storybookChannel.on(
-      "emulator-preview/get-all-devices-response",
-      handleDevicesResponse
-    );
-    storybookChannel.emit("emulator-preview/get-all-devices");
-
-    return () => {
-      storybookChannel.off(
-        "emulator-preview/get-all-devices-response",
-        handleDevicesResponse
-      );
-    };
-  }, []);
+  const devices = useDevices();
 
   return (
     <View style={{ flex: 1 }}>

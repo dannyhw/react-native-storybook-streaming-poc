@@ -14,7 +14,7 @@ async function experimental_serverChannel(
   channel: Channel,
   { configType, presets, loglevel: logLevel }: Options
 ) {
-  await emulatorPreview({
+  const emulatorResult = await emulatorPreview({
     channel,
     devices: [
       {
