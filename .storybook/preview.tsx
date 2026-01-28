@@ -1,5 +1,15 @@
 import type { Preview } from "@storybook/react-native-web-vite";
-import { Text, View } from "react-native";
+import type { CSSProperties } from "react";
+
+const labelStyle: CSSProperties = {
+  marginTop: 12,
+  fontSize: 13,
+  fontFamily:
+    '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
+  fontWeight: 500,
+  color: "#6b7280",
+  letterSpacing: "0.01em",
+};
 
 const preview: Preview = {
   parameters: {
@@ -12,9 +22,10 @@ const preview: Preview = {
   },
   decorators: [
     (Story) => (
-      <View style={{ flex: 1 }}>
-        <View
+      <div style={{ flex: 1, display: "flex" }}>
+        <div
           style={{
+            display: "flex",
             flexDirection: "row",
             columnGap: 64,
             flex: 1,
@@ -22,8 +33,8 @@ const preview: Preview = {
           }}
         >
           {/* iPhone */}
-          <View style={{ alignItems: "center" }}>
-            <View style={{ position: "relative", maxHeight: "85vh" }}>
+          <div style={{ display: "flex", alignItems: "center", flexDirection: "column" }}>
+            <div style={{ position: "relative", maxHeight: "85vh" }}>
               <img
                 src="/Apple iPhone 14 Starlight.png"
                 style={{
@@ -45,14 +56,12 @@ const preview: Preview = {
                   borderRadius: "8%",
                 }}
               />
-            </View>
-            <Text style={{ marginTop: 12, fontSize: 14, color: "#666" }}>
-              iOS
-            </Text>
-          </View>
+            </div>
+            <span style={labelStyle}>iOS</span>
+          </div>
           {/* Android */}
-          <View style={{ alignItems: "center" }}>
-            <View style={{ position: "relative", maxHeight: "85vh" }}>
+          <div style={{ display: "flex", alignItems: "center", flexDirection: "column" }}>
+            <div style={{ position: "relative", maxHeight: "85vh" }}>
               <img
                 src="/Samsung Galaxy Note 10 Aura Glow.png"
                 style={{
@@ -74,39 +83,37 @@ const preview: Preview = {
                   borderRadius: "4%",
                 }}
               />
-            </View>
-            <Text style={{ marginTop: 12, fontSize: 14, color: "#666" }}>
-              Android
-            </Text>
-          </View>
+            </div>
+            <span style={labelStyle}>Android</span>
+          </div>
           {/* Web */}
-          <View style={{ flex: 1 }}>
-            <View
+          <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
+            <div
               style={{
+                display: "flex",
+                flexDirection: "column",
                 height: "85vh",
                 width: "100%",
                 borderRadius: 8,
                 overflow: "hidden",
-                borderWidth: 1,
-                borderColor: "#e0e0e0",
+                border: "1px solid #e0e0e0",
                 backgroundColor: "#fff",
               }}
             >
               {/* Browser toolbar */}
-              <View
+              <div
                 style={{
+                  display: "flex",
                   flexDirection: "row",
                   alignItems: "center",
-                  paddingHorizontal: 12,
-                  paddingVertical: 10,
+                  padding: "10px 12px",
                   backgroundColor: "#f5f5f5",
-                  borderBottomWidth: 1,
-                  borderBottomColor: "#e0e0e0",
+                  borderBottom: "1px solid #e0e0e0",
                 }}
               >
                 {/* Traffic lights */}
-                <View style={{ flexDirection: "row", gap: 6 }}>
-                  <View
+                <div style={{ display: "flex", flexDirection: "row", gap: 6 }}>
+                  <div
                     style={{
                       width: 12,
                       height: 12,
@@ -114,7 +121,7 @@ const preview: Preview = {
                       backgroundColor: "#ff5f57",
                     }}
                   />
-                  <View
+                  <div
                     style={{
                       width: 12,
                       height: 12,
@@ -122,7 +129,7 @@ const preview: Preview = {
                       backgroundColor: "#ffbd2e",
                     }}
                   />
-                  <View
+                  <div
                     style={{
                       width: 12,
                       height: 12,
@@ -130,41 +137,38 @@ const preview: Preview = {
                       backgroundColor: "#28c840",
                     }}
                   />
-                </View>
+                </div>
                 {/* URL bar */}
-                <View
+                <div
                   style={{
                     flex: 1,
                     marginLeft: 12,
                     backgroundColor: "#fff",
                     borderRadius: 4,
-                    paddingHorizontal: 10,
-                    paddingVertical: 4,
+                    padding: "4px 10px",
                   }}
                 >
-                  <Text style={{ fontSize: 12, color: "#999" }}>
+                  <span
+                    style={{
+                      fontSize: 12,
+                      color: "#999",
+                      fontFamily:
+                        '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
+                    }}
+                  >
                     localhost:6006
-                  </Text>
-                </View>
-              </View>
+                  </span>
+                </div>
+              </div>
               {/* Content */}
-              <View style={{ flex: 1, padding: 16 }}>
+              <div style={{ flex: 1, padding: 16 }}>
                 <Story />
-              </View>
-            </View>
-            <Text
-              style={{
-                marginTop: 12,
-                fontSize: 14,
-                color: "#666",
-                textAlign: "center",
-              }}
-            >
-              Web
-            </Text>
-          </View>
-        </View>
-      </View>
+              </div>
+            </div>
+            <span style={{ ...labelStyle, textAlign: "center" }}>Web</span>
+          </div>
+        </div>
+      </div>
     ),
   ],
 };
