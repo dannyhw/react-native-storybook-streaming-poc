@@ -3,7 +3,8 @@ import { Channel } from "storybook/internal/channels";
 import { Options } from "storybook/internal/types";
 import { WebSocketServer } from "ws";
 import EVENTS from "storybook/internal/core-events";
-import { startAppium } from "./wdui.mjs";
+import { startAppium } from "./wdui.ts";
+import { defaultConfig, DeviceGlobals } from "./devices.ts";
 
 type ReactNativeServerOptions = {
   host?: string;
@@ -12,12 +13,12 @@ type ReactNativeServerOptions = {
 
 async function experimental_serverChannel(
   channel: Channel,
-  { configType, presets, loglevel: logLevel }: Options
+  { configType, presets, loglevel: logLevel }: Options,
 ) {
   startAppium();
   if (configType === "DEVELOPMENT") {
     const options = await presets.apply<ReactNativeServerOptions>(
-      "reactNativeServerOptions"
+      "reactNativeServerOptions",
     );
 
     if (options) {
@@ -106,7 +107,7 @@ const config: StorybookConfig & {
   reactNativeServerOptions: ReactNativeServerOptions;
   experimental_serverChannel: (
     channel: Channel,
-    options: Options
+    options: Options,
   ) => Promise<Channel>;
 } = {
   stories: ["../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
@@ -115,8 +116,8 @@ const config: StorybookConfig & {
   staticDirs: ["./static"],
   experimental_serverChannel,
   reactNativeServerOptions: {
-    host: "localhost",
-    port: 7007,
+    host: defaultConfig.websocketHost,
+    port: defaultConfig.websocketPort,
   },
 };
 export default config;
