@@ -43,7 +43,8 @@ export async function startAppium() {
       "appium:automationName": "UiAutomator2",
       "appium:mjpegServerPort": 8083,
       "appium:udid": "emulator-5554",
-      "appium:deviceName": "Medium_Phone_API_36.1",
+      // "appium:deviceName": "Medium_Phone_API_36.1",
+      "appium:deviceName": "Pixel_9",
     },
   });
 }

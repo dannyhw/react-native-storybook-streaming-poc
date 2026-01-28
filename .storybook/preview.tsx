@@ -54,7 +54,7 @@ const preview: Preview = {
           <View style={{ alignItems: "center" }}>
             <View style={{ position: "relative", maxHeight: "85vh" }}>
               <img
-                src="/Samsung Galaxy S9 Titanium Gray.png"
+                src="/Samsung Galaxy Note 10 Aura Glow.png"
                 style={{
                   maxHeight: "85vh",
                   position: "relative",
@@ -66,12 +66,12 @@ const preview: Preview = {
                 src="http://localhost:8083"
                 style={{
                   position: "absolute",
-                  top: "8.5%",
-                  left: "2.8%",
-                  width: "94.5%",
-                  height: "93%",
+                  top: "2.5%",
+                  left: "3.5%",
+                  width: "93%",
+                  height: "95%",
                   objectFit: "cover",
-                  borderRadius: "3%",
+                  borderRadius: "4%",
                 }}
               />
             </View>
